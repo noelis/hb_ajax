@@ -2,11 +2,21 @@
 
 
 // PART 1: SHOW A FORTUNE
+function getFortune(result){
+    var fortuneResult = result;
+    $("#fortune-text").html(fortuneResult);
+}
 
 function showFortune(evt) {
 
     // TODO: get the fortune and show it in the #fortune-text div
+    evt.preventDefault();
+// getFortune is an Ajax call back function
+     $.get("/fortune", getFortune);
+   
 }
+
+// only Ajax has call back functions Javascript showFortune gets called 
 
 $('#get-fortune-button').on('click', showFortune);
 
